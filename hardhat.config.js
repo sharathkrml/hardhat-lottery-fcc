@@ -32,4 +32,12 @@ module.exports = {
             default: 1,
         },
     },
+    gasReporter: {
+        enabled: false,
+        outputFile: "gas-report.txt",
+        noColors: true,
+        currency: "INR",
+        coinmarketcap: process.env.COINMARKETCAP_KEY || "",
+        token: "MATIC",
+    },
 }
