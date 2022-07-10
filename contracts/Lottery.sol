@@ -12,7 +12,7 @@ import "@chainlink/contracts/src/v0.8/KeeperCompatible.sol";
 error Lottery__NotEnoughEthEntered();
 error Lottery__TransferFailed();
 error Lottery__NotOpen();
-error Raffle_UpkeepNotNeeded(uint256 currentBalance, uint256 numPlayers, uint256 lotteryState);
+error Lottery_UpkeepNotNeeded(uint256 currentBalance, uint256 numPlayers, uint256 lotteryState);
 
 /** @title Lottery Contract
  *  @author SharathV
@@ -105,7 +105,7 @@ contract Lottery is VRFConsumerBaseV2, KeeperCompatible {
     ) external override {
         (bool upkeepNeeded, ) = checkUpkeep("");
         if (!upkeepNeeded) {
-            revert Raffle_UpkeepNotNeeded(
+            revert Lottery_UpkeepNotNeeded(
                 address(this).balance,
                 s_players.length,
                 uint256(s_lotteryState)

@@ -23,6 +23,11 @@ module.exports = {
             accounts: [ACCOUNT],
         },
     },
+    etherscan: {
+        apiKey: {
+            rinkeby: ETHERSCAN,
+        },
+    },
     solidity: "0.8.7",
     namedAccounts: {
         deployer: {
@@ -33,11 +38,14 @@ module.exports = {
         },
     },
     gasReporter: {
-        enabled: false,
+        enabled: true,
         outputFile: "gas-report.txt",
         noColors: true,
         currency: "INR",
-        coinmarketcap: process.env.COINMARKETCAP_KEY || "",
+        coinmarketcap: COINMARKETCAP || "",
         token: "MATIC",
+    },
+    mocha: {
+        timeout: 500000,
     },
 }
