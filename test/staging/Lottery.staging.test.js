@@ -24,6 +24,7 @@ developmentChains.includes(network.name)
                   await new Promise(async (resolve, reject) => {
                       // setup listener before we enter the Lottery
                       // Just in case the blockchain moves REALLY fast
+                      let winnerStartingBalance
                       Lottery.once("WinnerPicked", async () => {
                           console.log("WinnerPicked event fired!")
                           try {
@@ -52,7 +53,8 @@ developmentChains.includes(network.name)
                       const tx = await Lottery.enterLottery({ value: LotteryEntranceFee })
                       await tx.wait(1)
                       console.log("Ok, time to wait...")
-                      const winnerStartingBalance = await accounts[0].getBalance()
+                      winnerStartingBalance = await accounts[0].getBalance()
+                      console.log(winnerStartingBalance)
 
                       // and this code WONT complete until our listener has finished listening!
                   })
