@@ -1,0 +1,17 @@
+await Lottery.enterLottery({value:"1000000000000000000"})
+await Lottery.enterLottery({value:"1000000000"})
+await Lottery.enterLottery()
+(await Lottery.enterLottery()).toString()
+(await Lottery.getEntranceFee()).toString()
+await Lottery.getEntranceFee()
+Lottery.getEntranceFee()
+Lottery
+let Lottery = await ethers.getContract("Lottery", deployer)
+await ethers.getContract("Lottery",deployer)
+const deployer = (await getNamedAccounts()).deployer
+await ethers.getContract("Lottery",deployer)
+let Lottery = await ethers.getContract("Lottery", deployer)
+deployer
+const deployer = (await getNamedAccounts()).deployer
+deployer = await getNamedAccounts()
+const {getNamedAccounts} = require('hardhat')
